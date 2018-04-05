@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using Services.ViewModelResolver;
 using CaliburnExample.Services.ViewModelResolver;
 
 namespace CaliburnExample
@@ -40,7 +39,7 @@ namespace CaliburnExample
             // požadavku na tento objekt vrátí vždy stejná instance
             // (jedna instance pro celou aplikaci)
             _container.Singleton<IWindowManager, WindowManager>(); // správa oken
-            _container.Singleton<IEventAggregator, EventAggregator>(); // Mediator poskytovaný frameworkem
+            _container.Singleton<IEventAggregator, Caliburn.Micro.EventAggregator>(); // Mediator poskytovaný frameworkem
 
             _container.Singleton<IViewModelResolver<IViewModel>, ViewModelResolver>();
 
