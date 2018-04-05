@@ -51,8 +51,8 @@ namespace CaliburnExample
 
             // Zde si do DI kontejneru přidáme jednotlivé pohledy
             // pohledy registruji taky jako Singletony, potom je načítám lazy
-            _container.Singleton<FirstViewModel>();
-            _container.Singleton<SecondViewModel>();
+            _container.Singleton<FirstViewModel>(nameof(FirstViewModel));
+            _container.Singleton<SecondViewModel>(nameof(SecondViewModel));
 
 
             _container.Instance(_container);
