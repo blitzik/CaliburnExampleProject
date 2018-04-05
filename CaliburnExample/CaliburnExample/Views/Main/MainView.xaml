@@ -18,10 +18,10 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="0" Content="První pohled" />
-        <Button Grid.Row="0" Grid.Column="2" Content="Druhý pohled" />
+        <Button Grid.Row="0" Grid.Column="0" x:Name="DisplayFirstView" Content="První pohled" />
+        <Button Grid.Row="0" Grid.Column="2" x:Name="DisplaySecondView" Content="Druhý pohled" />
 
         <!-- x:Name směřuje na Property ActiveItem ve view modelu MainViewModel (ActiveItem je Property předka třídy Conductor<T>.Collection.OneActive -->
-        <ContentControl x:Name="ActiveItem" /> <!-- ContentControl zobrazí pohled, který odpovídá view modelu, který je nastaven v ActiveItem -->
+        <ContentControl x:Name="ActiveItem" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" /> <!-- ContentControl zobrazí pohled, který odpovídá view modelu, který je nastaven v ActiveItem -->
     </Grid>
 </Window>

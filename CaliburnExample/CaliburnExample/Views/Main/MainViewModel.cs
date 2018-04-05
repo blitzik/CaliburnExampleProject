@@ -1,6 +1,8 @@
 ﻿using Caliburn.Micro;
 using CaliburnExample.EventAggregator.Messages;
 using CaliburnExample.Services.ViewModelResolver;
+using CaliburnExample.Views.FirstView;
+using CaliburnExample.Views.SecondView;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +39,24 @@ namespace CaliburnExample.Views.Main
         }
 
 
+        // ----- Obsluha tlačítek
+
+
+        public void DisplayFirstView()
+        {
+            ActivateItem(GetViewModel(nameof(FirstViewModel)));
+        }
+
+
+        public void DisplaySecondView()
+        {
+            ActivateItem(GetViewModel(nameof(SecondViewModel)));
+        }
+
+
         // ----- implementace rozhraní IHandle<ChangeViewMessage>
-        
+
+        // zatím nevyužitá metoda, ale hlavní okno je tímto připraveno přijímat požadavky z jiných view modelů na změnu pohledu
         public void Handle(ChangeViewMessage message)
         {
             // Když nějaká třída odešle zprávu ChangeViewMessage, tak ji zachytíme a pracujeme
