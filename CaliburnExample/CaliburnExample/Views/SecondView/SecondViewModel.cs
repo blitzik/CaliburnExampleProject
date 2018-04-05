@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaliburnExample.Views.SecondView
 {
-    public class SecondViewModel : Screen
+    public class SecondViewModel : Screen, IViewModel
     {
     }
 }
