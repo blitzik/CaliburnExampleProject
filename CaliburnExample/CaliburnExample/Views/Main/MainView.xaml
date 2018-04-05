@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainView" Height="300" Width="300">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button Grid.Row="0" Grid.Column="0" Content="První pohled" />
+        <Button Grid.Row="0" Grid.Column="2" Content="Druhý pohled" />
+
+        <!-- x:Name směřuje na Property ActiveItem ve view modelu MainViewModel (ActiveItem je Property předka třídy Conductor<T>.Collection.OneActive -->
+        <ContentControl x:Name="ActiveItem" /> <!-- ContentControl zobrazí pohled, který odpovídá view modelu, který je nastaven v ActiveItem -->
     </Grid>
 </Window>

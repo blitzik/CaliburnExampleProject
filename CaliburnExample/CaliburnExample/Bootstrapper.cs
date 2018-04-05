@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using CaliburnExample.Services.ViewModelResolver;
+using CaliburnExample.Views.FirstView;
+using CaliburnExample.Views.SecondView;
 
 namespace CaliburnExample
 {
@@ -48,7 +50,9 @@ namespace CaliburnExample
 
 
             // Zde si do DI kontejneru přidáme jednotlivé pohledy
-            // todo
+            // pohledy registruji taky jako Singletony, potom je načítám lazy
+            _container.Singleton<FirstViewModel>();
+            _container.Singleton<SecondViewModel>();
 
 
             _container.Instance(_container);

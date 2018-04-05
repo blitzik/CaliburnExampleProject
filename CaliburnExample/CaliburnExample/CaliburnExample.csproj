@@ -74,11 +74,19 @@
     <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
     <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
     <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
+    <Compile Include="Views\FirstView\FirstView.xaml.cs">
+      <DependentUpon>FirstView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FirstView\FirstViewModel.cs" />
     <Compile Include="Views\IViewModel.cs" />
     <Compile Include="Views\Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Main\MainViewModel.cs" />
+    <Compile Include="Views\SecondView\SecondView.xaml.cs">
+      <DependentUpon>SecondView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SecondView\SecondViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -109,7 +117,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Views\FirstView\FirstView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Main\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SecondView\SecondView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
