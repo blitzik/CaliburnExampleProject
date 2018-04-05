@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using CaliburnExample.Views;
 using CaliburnExample.Views.Main;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Services.ViewModelResolver;
+using CaliburnExample.Services.ViewModelResolver;
 
 namespace CaliburnExample
 {
@@ -39,6 +42,7 @@ namespace CaliburnExample
             _container.Singleton<IWindowManager, WindowManager>(); // správa oken
             _container.Singleton<IEventAggregator, EventAggregator>(); // Mediator poskytovaný frameworkem
 
+            _container.Singleton<IViewModelResolver<IViewModel>, ViewModelResolver>();
 
             // Přidáme ViewModel hlavního okna
             _container.Singleton<MainViewModel>();

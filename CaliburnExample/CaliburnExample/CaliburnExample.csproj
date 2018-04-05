@@ -71,6 +71,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
+    <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
+    <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
+    <Compile Include="Views\IViewModel.cs" />
     <Compile Include="Views\Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
