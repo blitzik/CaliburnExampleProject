@@ -5,8 +5,29 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CaliburnExample.Views.SecondView"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="500">
     <Grid>
-        <TextBlock Text="Druhý pohled" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="Brand" />
+                                <Binding Path="Type" />
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <ContentControl Grid.Column="2" x:Name="ActiveItem" />
     </Grid>
 </UserControl>
