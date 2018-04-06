@@ -10,6 +10,7 @@ using System.Windows;
 using CaliburnExample.Services.ViewModelResolver;
 using CaliburnExample.Views.FirstView;
 using CaliburnExample.Views.SecondView;
+using CaliburnExample.Views.ItemDetail;
 
 namespace CaliburnExample
 {
@@ -53,6 +54,7 @@ namespace CaliburnExample
             // pohledy registruji taky jako Singletony, potom je načítám lazy
             _container.Singleton<FirstViewModel>(nameof(FirstViewModel));
             _container.Singleton<SecondViewModel>(nameof(SecondViewModel));
+            _container.Singleton<ItemDetailViewModel>(nameof(ItemDetailViewModel));
 
 
             _container.Instance(_container);

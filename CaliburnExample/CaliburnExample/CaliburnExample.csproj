@@ -71,13 +71,20 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Domain\Car.cs" />
     <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
+    <Compile Include="EventAggregator\Messages\DisplayCarDetailMessage.cs" />
     <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
     <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
+    <Compile Include="Views\BaseConductorOneActive.cs" />
     <Compile Include="Views\FirstView\FirstView.xaml.cs">
       <DependentUpon>FirstView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FirstView\FirstViewModel.cs" />
+    <Compile Include="Views\ItemDetail\ItemDetailView.xaml.cs">
+      <DependentUpon>ItemDetailView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemDetail\ItemDetailViewModel.cs" />
     <Compile Include="Views\IViewModel.cs" />
     <Compile Include="Views\Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -118,6 +125,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Views\FirstView\FirstView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ItemDetail\ItemDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
