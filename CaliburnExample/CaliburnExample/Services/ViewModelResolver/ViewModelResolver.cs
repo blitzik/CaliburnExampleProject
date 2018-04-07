@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Caliburn.Micro;
 using CaliburnExample.Views;
-using Caliburn.Micro;
+using System;
 
 namespace CaliburnExample.Services.ViewModelResolver
 {
-    // Třída, která nám podle klíče (názvu ViewModelu) vrátí instanci konkrétního ViewModelu
     public class ViewModelResolver : IViewModelResolver<Views.IViewModel>
     {
         private readonly SimpleContainer _container;
@@ -22,7 +17,12 @@ namespace CaliburnExample.Services.ViewModelResolver
 
         public IViewModel Resolve(string viewModel)
         {
-            return (IViewModel)_container.GetInstance(Type.GetType(viewModel), viewModel);
+            IViewModel vm = _container.GetInstance(Type.GetType(viewModel), viewModel) as IViewModel;
+            if (vm != null) {
+                _container.BuildUp(vm);
+            }
+
+            return vm;
         }
     }
 }

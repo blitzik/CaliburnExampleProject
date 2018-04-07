@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CaliburnExample.Views.SecondView
+namespace CaliburnExample.Views.HelloWorld
 {
     /// <summary>
-    /// Interaction logic for SecondView.xaml
+    /// Interaction logic for HelloWorldView.xaml
     /// </summary>
-    public partial class SecondView : UserControl
+    public partial class HelloWorldView : UserControl
     {
-        public SecondView()
+        public HelloWorldView()
         {
             InitializeComponent();
         }

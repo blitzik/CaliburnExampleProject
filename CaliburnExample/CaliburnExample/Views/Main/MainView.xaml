@@ -5,23 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CaliburnExample.Views.Main"
         mc:Ignorable="d"
-        Title="MainView" Height="300" Width="500">
+        Title="MainView" Height="300" Width="300">
+    
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
-            <RowDefinition Height="10" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
-        <Button Grid.Row="0" Grid.Column="0" x:Name="DisplayFirstView" Content="První pohled" />
-        <Button Grid.Row="0" Grid.Column="2" x:Name="DisplaySecondView" Content="Druhý pohled" />
-
-        <!-- x:Name směřuje na Property ActiveItem ve view modelu MainViewModel (ActiveItem je Property předka třídy Conductor<T>.Collection.OneActive -->
-        <ContentControl x:Name="ActiveItem" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" /> <!-- ContentControl zobrazí pohled, který odpovídá view modelu, který je nastaven v ActiveItem -->
+        <ContentControl x:Name="ActiveItem"/>
     </Grid>
 </Window>
