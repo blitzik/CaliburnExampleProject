@@ -71,9 +71,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Command\DelegateCommand.cs" />
     <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
     <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
     <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
+    <Compile Include="Views\BaseConductorAllActive.cs" />
     <Compile Include="Views\BaseConductorOneActive.cs" />
     <Compile Include="Views\BaseScreen.cs" />
     <Compile Include="Views\HelloWorld\HelloWorldView.xaml.cs">
