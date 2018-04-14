@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using CaliburnExample.Services.ViewModelResolver;
+using CaliburnExample.Validation;
 using CaliburnExample.Views;
 using CaliburnExample.Views.HelloWorld;
 using CaliburnExample.Views.Main;
@@ -36,6 +37,10 @@ namespace CaliburnExample
 
             // View Model definitions
             _container.Singleton<HelloWorldViewModel>(nameof(HelloWorldViewModel));
+
+
+            // services
+            _container.PerRequest<IValidationObject, ValidationObject>();
 
 
             _container.Instance(_container);

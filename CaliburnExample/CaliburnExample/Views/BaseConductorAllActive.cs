@@ -1,10 +1,15 @@
 ﻿using Caliburn.Micro;
 using CaliburnExample.Services.ViewModelResolver;
 using System;
+using System.ComponentModel;
+using System.Collections;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
+using CaliburnExample.Validation;
 
 namespace CaliburnExample.Views
 {
-    public abstract class BaseConductorAllActive : Conductor<IViewModel>.Collection.AllActive, IViewModel
+    public abstract class BaseConductorAllActive : Conductor<IViewModel>.Collection.AllActive, IViewModel, INotifyDataErrorInfo
     {
         // property injection
         private IEventAggregator _eventAggregator;
@@ -22,13 +27,7 @@ namespace CaliburnExample.Views
             get { return _viewModelResolver; }
             set { _viewModelResolver = value; }
         }
-
-
-        public BaseConductorAllActive()
-        {
-            
-        }
-        
+       
 
         protected IViewModel AddViewModel(string viewModelName)
         {
@@ -49,5 +48,47 @@ namespace CaliburnExample.Views
             return vm;
         }
 
+
+        // ----- INotifyDataErrorInfo
+
+
+        // property injection
+        private IValidationObject _validation;
+        public IValidationObject Validation
+        {
+            get { return _validation; }
+            set { _validation = value; }
+        }
+
+
+        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+        public void RaiseErrorsChanged(string propertyName)
+        {
+            Validation.RaiseErrorsChanged(propertyName);
+        }
+
+
+        public bool HasErrors
+        {
+            get { return Validation.HasErrors; }
+        }
+
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            return Validation.GetErrors(propertyName);
+        }
+
+
+        protected void AddMessage(string errorMessage, Severity severity = Severity.ERROR, [CallerMemberName] string propertyName = null)
+        {
+            Validation.AddMessage(propertyName, errorMessage, severity);
+        }
+
+
+        protected void ClearMessages([CallerMemberName] string propertyName = null)
+        {
+            Validation.ClearMessages(propertyName);
+        }
     }
 }

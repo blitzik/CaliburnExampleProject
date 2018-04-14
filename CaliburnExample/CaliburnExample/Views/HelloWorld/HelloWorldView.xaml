@@ -6,5 +6,10 @@
              xmlns:local="clr-namespace:CaliburnExample.Views.HelloWorld"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <TextBlock Text="Hello World" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" />
+
+    <StackPanel>
+        <TextBlock Text="Only numbers!" />
+        <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, NotifyOnValidationError=True}" />
+    </StackPanel>
+
 </UserControl>

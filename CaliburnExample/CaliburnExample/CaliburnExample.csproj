@@ -75,6 +75,10 @@
     <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
     <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
     <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
+    <Compile Include="Validation\IValidationObject.cs" />
+    <Compile Include="Validation\ValidationMessage.cs" />
+    <Compile Include="Validation\IValidationError.cs" />
+    <Compile Include="Validation\ValidationObject.cs" />
     <Compile Include="Views\BaseConductorAllActive.cs" />
     <Compile Include="Views\BaseConductorOneActive.cs" />
     <Compile Include="Views\BaseScreen.cs" />
@@ -117,6 +121,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="Validation\ValidationResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HelloWorld\HelloWorldView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
