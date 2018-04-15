@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaliburnExample.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,7 +45,7 @@ namespace CaliburnExample.Views.Login
         }
 
 
-        public delegate void  LoginSuccessHandler(object sender, EventArgs args);
+        public delegate void  LoginSuccessHandler(object sender, User user);
         public event LoginSuccessHandler OnSuccessfullLogin;
 
         public void Login()
@@ -58,7 +59,7 @@ namespace CaliburnExample.Views.Login
             if (true) { // tady si zadej podmínku, kdy přihlášení bude v pořádku
                 LoginSuccessHandler handler = OnSuccessfullLogin;
                 if (handler != null) {
-                    handler(this, EventArgs.Empty);
+                    handler(this, new User(Username, Password));
                 }
 
             } else {

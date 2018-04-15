@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using CaliburnExample.Security;
 using CaliburnExample.Services.ViewModelResolver;
 using CaliburnExample.Validation;
 using System;
@@ -11,6 +12,15 @@ namespace CaliburnExample.Views
 {
     public abstract class BaseConductorOneActive : Conductor<IViewModel>.Collection.OneActive, IViewModel, INotifyDataErrorInfo
     {
+        // property injection
+        private IIdentity _identity;
+        public IIdentity Identity
+        {
+            get { return _identity; }
+            set { _identity = value; }
+        }
+
+
         // property injection
         private IEventAggregator _eventAggregator;
         public IEventAggregator EventAggregator

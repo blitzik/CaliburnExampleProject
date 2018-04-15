@@ -72,7 +72,10 @@
     </Compile>
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Command\DelegateCommand.cs" />
+    <Compile Include="Domain\User.cs" />
     <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
+    <Compile Include="Security\Identity.cs" />
+    <Compile Include="Security\IIdentity.cs" />
     <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
     <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
     <Compile Include="Validation\IValidationObject.cs" />
@@ -82,6 +85,10 @@
     <Compile Include="Views\BaseConductorAllActive.cs" />
     <Compile Include="Views\BaseConductorOneActive.cs" />
     <Compile Include="Views\BaseScreen.cs" />
+    <Compile Include="Views\Default\DefaultView.xaml.cs">
+      <DependentUpon>DefaultView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Default\DefaultViewModel.cs" />
     <Compile Include="Views\IViewModel.cs" />
     <Compile Include="Views\Login\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -122,6 +129,10 @@
   <ItemGroup />
   <ItemGroup>
     <Page Include="Validation\ValidationResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Default\DefaultView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

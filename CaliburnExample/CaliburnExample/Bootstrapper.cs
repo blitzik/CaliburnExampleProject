@@ -1,7 +1,10 @@
 ﻿using Caliburn.Micro;
+using CaliburnExample.Domain;
+using CaliburnExample.Security;
 using CaliburnExample.Services.ViewModelResolver;
 using CaliburnExample.Validation;
 using CaliburnExample.Views;
+using CaliburnExample.Views.Default;
 using CaliburnExample.Views.Login;
 using CaliburnExample.Views.Main;
 using System;
@@ -37,6 +40,7 @@ namespace CaliburnExample
 
             // View Model definitions
             _container.Singleton<LoginViewModel>(nameof(LoginViewModel));
+            _container.Singleton<DefaultViewModel>(nameof(DefaultViewModel));
 
 
             // services
@@ -52,8 +56,10 @@ namespace CaliburnExample
             LoginViewModel loginViewModel = _container.GetInstance<LoginViewModel>();
             _container.BuildUp(loginViewModel);
 
-            loginViewModel.OnSuccessfullLogin += (object s, EventArgs args) =>
+            loginViewModel.OnSuccessfullLogin += (object s, User user) =>
             {
+                _container.Instance<IIdentity>(new Identity(user));
+
                 MainViewModel mvm = _container.GetInstance<MainViewModel>();
                 _container.BuildUp(mvm);
 

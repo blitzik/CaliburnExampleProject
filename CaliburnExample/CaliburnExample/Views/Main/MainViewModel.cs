@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
+using CaliburnExample.Domain;
 using CaliburnExample.EventAggregator.Messages;
+using CaliburnExample.Views.Default;
 
 namespace CaliburnExample.Views.Main
 {
@@ -14,7 +16,9 @@ namespace CaliburnExample.Views.Main
         {
             base.OnInitialize();
 
-            EventAggregator.Subscribe(this);            
+            EventAggregator.Subscribe(this);
+
+            DisplayView(nameof(DefaultViewModel));
         }
 
 

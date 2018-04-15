@@ -6,11 +6,21 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using CaliburnExample.Validation;
+using CaliburnExample.Security;
 
 namespace CaliburnExample.Views
 {
     public abstract class BaseConductorAllActive : Conductor<IViewModel>.Collection.AllActive, IViewModel, INotifyDataErrorInfo
     {
+        // property injection
+        private IIdentity _identity;
+        public IIdentity Identity
+        {
+            get { return _identity; }
+            set { _identity = value; }
+        }
+
+
         // property injection
         private IEventAggregator _eventAggregator;
         public IEventAggregator EventAggregator
