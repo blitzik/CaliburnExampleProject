@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CaliburnExample.Views.HelloWorld
+namespace CaliburnExample.Views.Login
 {
     /// <summary>
-    /// Interaction logic for HelloWorldView.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class HelloWorldView : UserControl
+    public partial class LoginView : Window
     {
-        public HelloWorldView()
+        public LoginView()
         {
             InitializeComponent();
         }

@@ -82,11 +82,11 @@
     <Compile Include="Views\BaseConductorAllActive.cs" />
     <Compile Include="Views\BaseConductorOneActive.cs" />
     <Compile Include="Views\BaseScreen.cs" />
-    <Compile Include="Views\HelloWorld\HelloWorldView.xaml.cs">
-      <DependentUpon>HelloWorldView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HelloWorld\HelloWorldViewModel.cs" />
     <Compile Include="Views\IViewModel.cs" />
+    <Compile Include="Views\Login\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login\LoginViewModel.cs" />
     <Compile Include="Views\Main\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
@@ -125,7 +125,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HelloWorld\HelloWorldView.xaml">
+    <Page Include="Views\Login\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,7 +2,7 @@
 using CaliburnExample.Services.ViewModelResolver;
 using CaliburnExample.Validation;
 using CaliburnExample.Views;
-using CaliburnExample.Views.HelloWorld;
+using CaliburnExample.Views.Login;
 using CaliburnExample.Views.Main;
 using System;
 using System.Collections.Generic;
@@ -36,7 +36,7 @@ namespace CaliburnExample
 
 
             // View Model definitions
-            _container.Singleton<HelloWorldViewModel>(nameof(HelloWorldViewModel));
+            _container.Singleton<LoginViewModel>(nameof(LoginViewModel));
 
 
             // services
@@ -49,10 +49,19 @@ namespace CaliburnExample
 
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            MainViewModel mvm = _container.GetInstance<MainViewModel>();
-            _container.BuildUp(mvm);
+            LoginViewModel loginViewModel = _container.GetInstance<LoginViewModel>();
+            _container.BuildUp(loginViewModel);
 
-            _container.GetInstance<IWindowManager>().ShowWindow(mvm);
+            loginViewModel.OnSuccessfullLogin += (object s, EventArgs args) =>
+            {
+                MainViewModel mvm = _container.GetInstance<MainViewModel>();
+                _container.BuildUp(mvm);
+
+                _container.GetInstance<IWindowManager>().ShowWindow(mvm);
+                loginViewModel.TryClose();
+            };
+
+            _container.GetInstance<IWindowManager>().ShowWindow(loginViewModel);
         }
 
 
