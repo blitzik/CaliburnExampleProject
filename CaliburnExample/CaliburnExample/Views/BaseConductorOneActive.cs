@@ -29,7 +29,7 @@ namespace CaliburnExample.Views
         }
 
 
-        public void DisplayView(string viewModelName)
+        protected void DisplayView(string viewModelName)
         {
             ActivateItem(GetViewModel(viewModelName));
         }
