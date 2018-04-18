@@ -7,6 +7,7 @@ using CaliburnExample.Views;
 using CaliburnExample.Views.Default;
 using CaliburnExample.Views.Login;
 using CaliburnExample.Views.Main;
+using CaliburnExample.Views.Registration;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -40,6 +41,7 @@ namespace CaliburnExample
 
             // View Model definitions
             _container.Singleton<LoginViewModel>(nameof(LoginViewModel));
+            _container.PerRequest<RegistrationViewModel>(nameof(RegistrationViewModel));
             _container.Singleton<DefaultViewModel>(nameof(DefaultViewModel));
 
 
