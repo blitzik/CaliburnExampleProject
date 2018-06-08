@@ -29,10 +29,10 @@ namespace CaliburnExample.Views
         }
        
 
-        protected IViewModel AddViewModel(string viewModelName)
+        protected IViewModel ActivateItem(string viewModelName)
         {
             IViewModel vm = GetViewModel(viewModelName);
-            Items.Add(vm);
+            ActivateItem(vm);
 
             return vm;
         }
