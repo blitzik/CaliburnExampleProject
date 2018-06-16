@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using CaliburnExample.FlashMessages;
 using CaliburnExample.Services.ViewModelResolver;
 using CaliburnExample.Validation;
 using CaliburnExample.Views;
@@ -41,6 +42,7 @@ namespace CaliburnExample
 
             // services
             _container.PerRequest<IValidationObject, ValidationObject>();
+            _container.Singleton<IFlashMessagesManager, FlashMessagesManager>();
 
 
             _container.Instance(_container);
@@ -61,13 +63,13 @@ namespace CaliburnExample
         }
 
 
-        protected override object GetInstance(Type service, string key)
+        protected override object GetInstance(System.Type service, string key)
         {
             return _container.GetInstance(service, key);
         }
 
 
-        protected override IEnumerable<object> GetAllInstances(Type service)
+        protected override IEnumerable<object> GetAllInstances(System.Type service)
         {
             return _container.GetAllInstances(service);
         }

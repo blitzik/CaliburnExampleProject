@@ -73,6 +73,13 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Command\DelegateCommand.cs" />
     <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
+    <Compile Include="FlashMessages\FlashMessages.xaml.cs">
+      <DependentUpon>FlashMessages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FlashMessages\FlashMessagesManager.cs" />
+    <Compile Include="FlashMessages\IFlashMessagesManager.cs" />
+    <Compile Include="FlashMessages\FlashMessage.cs" />
+    <Compile Include="FlashMessages\FlashMessagesCollection.cs" />
     <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
     <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
     <Compile Include="Validation\IValidationObject.cs" />
@@ -121,6 +128,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Page Include="FlashMessages\FlashMessages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Validation\ValidationResource.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

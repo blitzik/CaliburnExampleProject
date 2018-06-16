@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using CaliburnExample.Validation;
+using CaliburnExample.FlashMessages;
 
 namespace CaliburnExample.Views
 {
@@ -27,7 +28,16 @@ namespace CaliburnExample.Views
             get { return _viewModelResolver; }
             set { _viewModelResolver = value; }
         }
-       
+
+
+        // property injection
+        private IFlashMessagesManager _flashMessagesManager;
+        public IFlashMessagesManager FlashMessagesManager
+        {
+            get { return _flashMessagesManager; }
+            set { _flashMessagesManager = value; }
+        }
+
 
         protected IViewModel ActivateItem(string viewModelName)
         {
@@ -46,6 +56,18 @@ namespace CaliburnExample.Views
             }
 
             return vm;
+        }
+
+
+        protected void FlashMessage(string message, FlashMessages.Type type)
+        {
+            FlashMessagesManager.DisplayFlashMessage(message, type);
+        }
+
+
+        protected void FlashMessages(FlashMessagesCollection flashMessages)
+        {
+            FlashMessagesManager.DisplayFlashMessages(flashMessages);
         }
 
 

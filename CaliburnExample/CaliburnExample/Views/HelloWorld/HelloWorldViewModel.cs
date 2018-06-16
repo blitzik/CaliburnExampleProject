@@ -1,4 +1,5 @@
-﻿using CaliburnExample.Validation;
+﻿using CaliburnExample.FlashMessages;
+using CaliburnExample.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,17 @@ namespace CaliburnExample.Views.HelloWorld
                 _age = value;
                 NotifyOfPropertyChange(() => Age);
             }
+        }
+
+
+        public void ClickMe()
+        {
+            FlashMessages(new FlashMessagesCollection()
+                .Add("Info flash message", CaliburnExample.FlashMessages.Type.INFO)
+                .Add("Success flash message", CaliburnExample.FlashMessages.Type.SUCCESS)
+                .Add("Warning flash message", CaliburnExample.FlashMessages.Type.WARNING)
+                .Add("Error flash message", CaliburnExample.FlashMessages.Type.ERROR)
+            );
         }
     }
 }

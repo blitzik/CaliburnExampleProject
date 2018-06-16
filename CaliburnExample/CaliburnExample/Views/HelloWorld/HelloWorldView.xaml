@@ -10,6 +10,7 @@
     <StackPanel>
         <TextBlock Text="Only numbers!" />
         <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay, NotifyOnValidationError=True}" />
+        <Button Margin="0 15 0 0" Content="Click me!" x:Name="ClickMe" />
     </StackPanel>
 
 </UserControl>

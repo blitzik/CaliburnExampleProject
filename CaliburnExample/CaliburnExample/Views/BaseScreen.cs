@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using CaliburnExample.FlashMessages;
 using CaliburnExample.Services.ViewModelResolver;
 using CaliburnExample.Validation;
 using System;
@@ -17,6 +18,27 @@ namespace CaliburnExample.Views
         {
             get { return _eventAggregator; }
             set { _eventAggregator = value; }
+        }
+
+
+        // property injection
+        private IFlashMessagesManager _flashMessagesManager;
+        public IFlashMessagesManager FlashMessagesManager
+        {
+            get { return _flashMessagesManager; }
+            set { _flashMessagesManager = value; }
+        }
+
+
+        protected void FlashMessage(string message, FlashMessages.Type type)
+        {
+            FlashMessagesManager.DisplayFlashMessage(message, type);
+        }
+
+
+        protected void FlashMessages(FlashMessagesCollection flashMessages)
+        {
+            FlashMessagesManager.DisplayFlashMessages(flashMessages);
         }
 
 
