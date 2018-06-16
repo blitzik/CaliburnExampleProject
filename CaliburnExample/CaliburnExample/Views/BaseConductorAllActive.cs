@@ -38,7 +38,7 @@ namespace CaliburnExample.Views
         }
 
 
-        private IViewModel GetViewModel(string viewModelName)
+        protected IViewModel GetViewModel(string viewModelName)
         {
             IViewModel vm = ViewModelResolver.Resolve(viewModelName);
             if (vm == null) {

@@ -29,13 +29,13 @@ namespace CaliburnExample.Views
         }
 
 
-        protected void DisplayView(string viewModelName)
+        protected void ActivateItem(string viewModelName)
         {
             ActivateItem(GetViewModel(viewModelName));
         }
 
 
-        private IViewModel GetViewModel(string viewModelName)
+        protected IViewModel GetViewModel(string viewModelName)
         {
             IViewModel viewModel = _viewModelResolver.Resolve(viewModelName);
             if (viewModel == null) {

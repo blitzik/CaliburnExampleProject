@@ -17,13 +17,17 @@ namespace CaliburnExample.Views.Main
 
             EventAggregator.Subscribe(this);
 
-            DisplayView(nameof(HelloWorldViewModel));
+            ActivateItem(nameof(HelloWorldViewModel));
         }
 
 
         public void Handle(ChangeViewMessage message)
         {
-            DisplayView(message.ViewModelName);
+            if (message.ViewModel != null) {
+                ActivateItem(message.ViewModel);
+            } else {
+                ActivateItem(message.ViewModelName);
+            }
         }
     }
 }

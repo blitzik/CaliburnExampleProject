@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CaliburnExample.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +16,22 @@ namespace CaliburnExample.EventAggregator.Messages
         }
 
 
+        private IViewModel _viewModel;
+        public IViewModel ViewModel
+        {
+            get { return _viewModel; }
+        }
+
+
         public ChangeViewMessage(string viewName)
         {
             _viewModelName = viewName;
+        }
+
+
+        public ChangeViewMessage(IViewModel viewModel)
+        {
+            _viewModel = viewModel;
         }
     }
 }
