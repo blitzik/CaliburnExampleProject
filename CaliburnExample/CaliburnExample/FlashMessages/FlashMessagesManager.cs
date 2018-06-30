@@ -30,8 +30,20 @@ namespace CaliburnExample.FlashMessages
         }
 
 
+        private DispatcherTimer _dispatcherTimer;
+        private FlashMessagesCollection _sourceCollection;
+
         public FlashMessagesManager()
         {
+            _sourceCollection = new FlashMessagesCollection();
+            _dispatcherTimer = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(300) };
+            _dispatcherTimer.Tick += (o, e) => {
+                if (_sourceCollection.IsEmpty) {
+                    _dispatcherTimer.Stop();
+                    return;
+                }
+                _flashMessages.Add(_sourceCollection.CutFirst());
+            };
             _flashMessages = new ObservableCollection<FlashMessage>();
             IsEmpty = true;
         }
@@ -39,17 +51,11 @@ namespace CaliburnExample.FlashMessages
 
         public void DisplayFlashMessages(FlashMessagesCollection flashMessagesCollection)
         {
+            _dispatcherTimer.Stop();
             ClearFlashMessages();
             IsEmpty = false;
-            var t = new DispatcherTimer() { Interval = TimeSpan.FromMilliseconds(300) };
-            t.Tick += (o, e) => {
-                if (flashMessagesCollection.IsEmpty) {
-                    t.Stop();
-                    return;
-                }
-                _flashMessages.Add(flashMessagesCollection.CutFirst());
-            };
-            t.Start();
+            _sourceCollection = flashMessagesCollection;
+            _dispatcherTimer.Start();
         }
 
 
