@@ -1,8 +1,8 @@
 ﻿using Caliburn.Micro;
-using Project.EventAggregator.Messages;
-using Project.ViewModels.Base;
+using prjt.EventAggregator.Messages;
+using prjt.ViewModels.Base;
 
-namespace Project.ViewModels
+namespace prjt.ViewModels
 {
     public class MainViewModel : BaseConductorOneActive, IHandle<ChangeViewMessage>
     {

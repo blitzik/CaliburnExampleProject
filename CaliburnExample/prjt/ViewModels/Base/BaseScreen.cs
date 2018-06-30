@@ -1,16 +1,16 @@
 ﻿using Caliburn.Micro;
-using Project.FlashMessages;
-using Project.Services.ViewModelResolver;
-using Project.Validation;
+using prjt.FlashMessages;
+using prjt.Services.ViewModelResolver;
+using prjt.Validation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Project.ViewModels.Base
+namespace prjt.ViewModels.Base
 {
-    public abstract class BaseConductorOneActive : Conductor<IViewModel>.Collection.OneActive, IViewModel, INotifyDataErrorInfo
+    public abstract class BaseScreen : Screen, IViewModel, INotifyDataErrorInfo
     {
         // property injection
         private IEventAggregator _eventAggregator;
@@ -22,37 +22,11 @@ namespace Project.ViewModels.Base
 
 
         // property injection
-        private IViewModelResolver<IViewModel> _viewModelResolver;
-        public IViewModelResolver<IViewModel> ViewModelResolver
-        {
-            get { return _viewModelResolver; }
-            set { _viewModelResolver = value; }
-        }
-
-
-        // property injection
         private IFlashMessagesManager _flashMessagesManager;
         public IFlashMessagesManager FlashMessagesManager
         {
             get { return _flashMessagesManager; }
             set { _flashMessagesManager = value; }
-        }
-
-
-        protected void ActivateItem(string viewModelName)
-        {
-            ActivateItem(GetViewModel(viewModelName));
-        }
-
-
-        protected IViewModel GetViewModel(string viewModelName)
-        {
-            IViewModel viewModel = _viewModelResolver.Resolve(viewModelName);
-            if (viewModel == null) {
-                throw new Exception("Requested ViewModel does not Exist!");
-            }
-
-            return viewModel;
         }
 
 
@@ -109,6 +83,5 @@ namespace Project.ViewModels.Base
         {
             Validation.ClearMessages(propertyName);
         }
-
     }
 }

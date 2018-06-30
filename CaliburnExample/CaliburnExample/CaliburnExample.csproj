@@ -104,9 +104,9 @@
       <Project>{5e92ac58-df8f-4eed-8c36-74ea9d23c661}</Project>
       <Name>intf</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Project\Project.csproj">
+    <ProjectReference Include="..\prjt\prjt.csproj">
       <Project>{e9484cef-d032-414d-87cd-2e365bee57b5}</Project>
-      <Name>Project</Name>
+      <Name>prjt</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

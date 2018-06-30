@@ -1,13 +1,13 @@
-﻿using Project.FlashMessages;
-using Project.Validation;
-using Project.ViewModels.Base;
+﻿using prjt.FlashMessages;
+using prjt.Validation;
+using prjt.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.ViewModels
+namespace prjt.ViewModels
 {
     public class HelloWorldViewModel : BaseScreen
     {
@@ -33,10 +33,10 @@ namespace Project.ViewModels
         {
             //FlashMessage("Success flash message", Project.FlashMessages.Type.SUCCESS);
             FlashMessages(new FlashMessagesCollection()
-                .Add("Info flash message", Project.FlashMessages.Type.INFO)
-                .Add("Success flash message", Project.FlashMessages.Type.SUCCESS)
-                .Add("Warning flash message", Project.FlashMessages.Type.WARNING)
-                .Add("Error flash message", Project.FlashMessages.Type.ERROR)
+                .Add("Info flash message", prjt.FlashMessages.Type.INFO)
+                .Add("Success flash message", prjt.FlashMessages.Type.SUCCESS)
+                .Add("Warning flash message", prjt.FlashMessages.Type.WARNING)
+                .Add("Error flash message", prjt.FlashMessages.Type.ERROR)
             );
         }
     }

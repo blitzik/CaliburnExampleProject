@@ -1,8 +1,8 @@
 ﻿using Caliburn.Micro;
-using Project.ViewModels.Base;
+using prjt.ViewModels.Base;
 using System;
 
-namespace Project.Services.ViewModelResolver
+namespace prjt.Services.ViewModelResolver
 {
     public class ViewModelResolver : IViewModelResolver<IViewModel>
     {

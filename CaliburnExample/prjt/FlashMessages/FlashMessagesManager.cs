@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 
-namespace Project.FlashMessages
+namespace prjt.FlashMessages
 {
     public class FlashMessagesManager : PropertyChangedBase, IFlashMessagesManager
     {

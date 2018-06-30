@@ -97,9 +97,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Project\Project.csproj">
+    <ProjectReference Include="..\prjt\prjt.csproj">
       <Project>{e9484cef-d032-414d-87cd-2e365bee57b5}</Project>
-      <Name>Project</Name>
+      <Name>prjt</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

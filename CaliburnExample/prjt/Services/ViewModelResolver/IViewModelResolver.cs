@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Services.ViewModelResolver
+namespace prjt.Services.ViewModelResolver
 {
     public interface IViewModelResolver<T>
     {

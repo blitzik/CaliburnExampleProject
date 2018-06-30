@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project.Validation
+namespace prjt.Validation
 {
     public class ValidationObject : IValidationObject
     {

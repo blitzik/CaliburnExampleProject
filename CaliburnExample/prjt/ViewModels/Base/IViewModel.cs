@@ -1,4 +1,4 @@
-﻿namespace Project.ViewModels.Base
+﻿namespace prjt.ViewModels.Base
 {
     public interface IViewModel
     {

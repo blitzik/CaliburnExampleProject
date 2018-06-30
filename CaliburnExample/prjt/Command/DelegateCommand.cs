@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Project.Commands
+namespace prjt.Commands
 {
     public class DelegateCommand<T> : ICommand
     {

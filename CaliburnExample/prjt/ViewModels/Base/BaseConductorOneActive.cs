@@ -1,16 +1,16 @@
 ﻿using Caliburn.Micro;
-using Project.Services.ViewModelResolver;
+using prjt.FlashMessages;
+using prjt.Services.ViewModelResolver;
+using prjt.Validation;
 using System;
-using System.ComponentModel;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Project.Validation;
-using Project.FlashMessages;
 
-namespace Project.ViewModels.Base
+namespace prjt.ViewModels.Base
 {
-    public abstract class BaseConductorAllActive : Conductor<IViewModel>.Collection.AllActive, IViewModel, INotifyDataErrorInfo
+    public abstract class BaseConductorOneActive : Conductor<IViewModel>.Collection.OneActive, IViewModel, INotifyDataErrorInfo
     {
         // property injection
         private IEventAggregator _eventAggregator;
@@ -39,23 +39,20 @@ namespace Project.ViewModels.Base
         }
 
 
-        protected IViewModel ActivateItem(string viewModelName)
+        protected void ActivateItem(string viewModelName)
         {
-            IViewModel vm = GetViewModel(viewModelName);
-            ActivateItem(vm);
-
-            return vm;
+            ActivateItem(GetViewModel(viewModelName));
         }
 
 
         protected IViewModel GetViewModel(string viewModelName)
         {
-            IViewModel vm = ViewModelResolver.Resolve(viewModelName);
-            if (vm == null) {
+            IViewModel viewModel = _viewModelResolver.Resolve(viewModelName);
+            if (viewModel == null) {
                 throw new Exception("Requested ViewModel does not Exist!");
             }
 
-            return vm;
+            return viewModel;
         }
 
 
@@ -112,5 +109,6 @@ namespace Project.ViewModels.Base
         {
             Validation.ClearMessages(propertyName);
         }
+
     }
 }

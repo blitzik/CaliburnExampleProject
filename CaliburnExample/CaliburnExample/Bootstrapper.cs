@@ -1,9 +1,9 @@
 ﻿using Caliburn.Micro;
-using Project.ViewModels;
-using Project.Validation;
-using Project.FlashMessages;
-using Project.Services.ViewModelResolver;
-using Project.ViewModels.Base;
+using prjt.ViewModels;
+using prjt.Validation;
+using prjt.FlashMessages;
+using prjt.Services.ViewModelResolver;
+using prjt.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Windows;
@@ -28,7 +28,7 @@ namespace CaliburnExample
             var config = new TypeMappingConfiguration()
             {
                 DefaultSubNamespaceForViews = "intf.Views",
-                DefaultSubNamespaceForViewModels = "Project.ViewModels"
+                DefaultSubNamespaceForViewModels = "prjt.ViewModels"
             };
             ViewLocator.ConfigureTypeMappings(config);
             ViewModelLocator.ConfigureTypeMappings(config);
