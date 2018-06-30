@@ -1,13 +1,13 @@
 ﻿using Caliburn.Micro;
-using CaliburnExample.FlashMessages;
-using CaliburnExample.Services.ViewModelResolver;
-using CaliburnExample.Validation;
-using CaliburnExample.Views;
-using CaliburnExample.Views.HelloWorld;
-using CaliburnExample.Views.Main;
+using Project.ViewModels;
+using Project.Validation;
+using Project.FlashMessages;
+using Project.Services.ViewModelResolver;
+using Project.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Reflection;
 
 namespace CaliburnExample
 {
@@ -24,6 +24,18 @@ namespace CaliburnExample
 
         protected override void Configure()
         {
+            var config = new TypeMappingConfiguration()
+            {
+                DefaultSubNamespaceForViews = "CaliburnExample.Views",
+                DefaultSubNamespaceForViewModels = "Project.ViewModels"
+            };
+            ViewLocator.ConfigureTypeMappings(config);
+            ViewModelLocator.ConfigureTypeMappings(config);
+
+
+            // -----
+
+
             _container = new SimpleContainer();
 
             _container.Singleton<IWindowManager, WindowManager>();
@@ -60,6 +72,18 @@ namespace CaliburnExample
 
         protected override void OnExit(object sender, EventArgs e)
         {
+        }
+
+
+        protected override IEnumerable<Assembly> SelectAssemblies()
+        {
+            IList<Assembly> assemblies = new List<Assembly>
+            {
+                GetType().Assembly,
+                typeof(MainViewModel).GetTypeInfo().Assembly
+            };
+
+            return assemblies;
         }
 
 

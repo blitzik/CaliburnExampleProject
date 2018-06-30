@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:CaliburnExample.FlashMessages"
+             xmlns:flashMessages="clr-namespace:Project.FlashMessages;assembly=Project"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
@@ -51,15 +52,15 @@
                             <Setter Property="Padding" Value="10" />
                             <Setter Property="Margin" Value="0 5 0 0" />
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding Type}" Value="{x:Static local:Type.SUCCESS}">
+                                <DataTrigger Binding="{Binding Type}" Value="{x:Static flashMessages:Type.SUCCESS}">
                                     <Setter Property="Background" Value="#27ae60" />
                                     <Setter Property="BorderBrush" Value="#27ae60" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Type}" Value="{x:Static local:Type.WARNING}">
+                                <DataTrigger Binding="{Binding Type}" Value="{x:Static flashMessages:Type.WARNING}">
                                     <Setter Property="Background" Value="#e67e22" />
                                     <Setter Property="BorderBrush" Value="#e67e22" />
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding Type}" Value="{x:Static local:Type.ERROR}">
+                                <DataTrigger Binding="{Binding Type}" Value="{x:Static flashMessages:Type.ERROR}">
                                     <Setter Property="Background" Value="#e74c3c" />
                                     <Setter Property="BorderBrush" Value="#e74c3c" />
                                 </DataTrigger>
@@ -112,16 +113,16 @@
                         <ContentControl.Style>
                             <Style TargetType="ContentControl">
                                 <Style.Triggers>
-                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static local:Type.INFO}">
+                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static flashMessages:Type.INFO}">
                                         <Setter Property="ContentTemplate" Value="{StaticResource notifINFO}" />
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static local:Type.SUCCESS}">
+                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static flashMessages:Type.SUCCESS}">
                                         <Setter Property="ContentTemplate" Value="{StaticResource notifSUCCESS}" />
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static local:Type.WARNING}">
+                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static flashMessages:Type.WARNING}">
                                         <Setter Property="ContentTemplate" Value="{StaticResource notifWARNING}" />
                                     </DataTrigger>
-                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static local:Type.ERROR}">
+                                    <DataTrigger Binding="{Binding Type}" Value="{x:Static flashMessages:Type.ERROR}">
                                         <Setter Property="ContentTemplate" Value="{StaticResource notifERROR}" />
                                     </DataTrigger>
                                 </Style.Triggers>

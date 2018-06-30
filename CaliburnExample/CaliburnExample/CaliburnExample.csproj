@@ -71,33 +71,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Command\DelegateCommand.cs" />
-    <Compile Include="EventAggregator\Messages\ChangeViewMessage.cs" />
     <Compile Include="FlashMessages\FlashMessages.xaml.cs">
       <DependentUpon>FlashMessages.xaml</DependentUpon>
     </Compile>
-    <Compile Include="FlashMessages\FlashMessagesManager.cs" />
-    <Compile Include="FlashMessages\IFlashMessagesManager.cs" />
-    <Compile Include="FlashMessages\FlashMessage.cs" />
-    <Compile Include="FlashMessages\FlashMessagesCollection.cs" />
-    <Compile Include="Services\ViewModelResolver\IViewModelResolver.cs" />
-    <Compile Include="Services\ViewModelResolver\ViewModelResolver.cs" />
-    <Compile Include="Validation\IValidationObject.cs" />
-    <Compile Include="Validation\ValidationMessage.cs" />
-    <Compile Include="Validation\IValidationError.cs" />
-    <Compile Include="Validation\ValidationObject.cs" />
-    <Compile Include="Views\BaseConductorAllActive.cs" />
-    <Compile Include="Views\BaseConductorOneActive.cs" />
-    <Compile Include="Views\BaseScreen.cs" />
-    <Compile Include="Views\HelloWorld\HelloWorldView.xaml.cs">
+    <Compile Include="Views\HelloWorldView.xaml.cs">
       <DependentUpon>HelloWorldView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\HelloWorld\HelloWorldViewModel.cs" />
-    <Compile Include="Views\IViewModel.cs" />
-    <Compile Include="Views\Main\MainView.xaml.cs">
+    <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Main\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -126,7 +108,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Project\Project.csproj">
+      <Project>{e9484cef-d032-414d-87cd-2e365bee57b5}</Project>
+      <Name>Project</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="FlashMessages\FlashMessages.xaml">
       <SubType>Designer</SubType>
@@ -136,13 +123,13 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HelloWorld\HelloWorldView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\HelloWorldView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\Main\MainView.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
