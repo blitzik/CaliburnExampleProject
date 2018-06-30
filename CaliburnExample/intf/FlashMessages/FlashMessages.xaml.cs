@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CaliburnExample.Views
+namespace intf.FlashMessages
 {
     /// <summary>
-    /// Interaction logic for HelloWorldView.xaml
+    /// Interaction logic for FlashMessages.xaml
     /// </summary>
-    public partial class HelloWorldView : UserControl
+    public partial class FlashMessages : UserControl
     {
-        public HelloWorldView()
+        public FlashMessages()
         {
             InitializeComponent();
         }

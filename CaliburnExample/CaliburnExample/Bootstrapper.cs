@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Reflection;
+using intf.Views;
 
 namespace CaliburnExample
 {
@@ -26,7 +27,7 @@ namespace CaliburnExample
         {
             var config = new TypeMappingConfiguration()
             {
-                DefaultSubNamespaceForViews = "CaliburnExample.Views",
+                DefaultSubNamespaceForViews = "intf.Views",
                 DefaultSubNamespaceForViewModels = "Project.ViewModels"
             };
             ViewLocator.ConfigureTypeMappings(config);
@@ -80,7 +81,7 @@ namespace CaliburnExample
             IList<Assembly> assemblies = new List<Assembly>
             {
                 GetType().Assembly,
-                typeof(MainViewModel).GetTypeInfo().Assembly
+                typeof(MainView).GetTypeInfo().Assembly
             };
 
             return assemblies;

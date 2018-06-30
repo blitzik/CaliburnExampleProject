@@ -9,7 +9,7 @@
                 <ResourceDictionary>
                     <local:Bootstrapper x:Key="Bootstrapper" />
                 </ResourceDictionary>
-                <ResourceDictionary Source="./Validation/ValidationResource.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/intf;component/Validation/ValidationResource.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
