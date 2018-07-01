@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prjt.FlashMessages
+namespace Common.FlashMessages
 {
     public enum Type
     {
@@ -20,7 +20,8 @@ namespace prjt.FlashMessages
         bool IsEmpty { get; }
         ObservableCollection<FlashMessage> FlashMessages { get; }
 
-        void DisplayFlashMessages(FlashMessagesCollection notifications);
+        IFlashMessagesManager AddFlashMessage(string message, Type type);
+        void DisplayFlashMessages();
         void DisplayFlashMessage(string message, Type type);
         void ClearFlashMessages();        
     }

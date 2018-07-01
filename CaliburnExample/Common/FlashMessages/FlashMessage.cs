@@ -1,4 +1,4 @@
-﻿namespace prjt.FlashMessages
+﻿namespace Common.FlashMessages
 {
     public class FlashMessage
     {

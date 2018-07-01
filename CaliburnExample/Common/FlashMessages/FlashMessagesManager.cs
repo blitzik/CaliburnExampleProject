@@ -8,7 +8,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 
-namespace prjt.FlashMessages
+namespace Common.FlashMessages
 {
     public class FlashMessagesManager : PropertyChangedBase, IFlashMessagesManager
     {
@@ -50,13 +50,22 @@ namespace prjt.FlashMessages
         }
 
 
-        public void DisplayFlashMessages(FlashMessagesCollection flashMessagesCollection)
+        public void DisplayFlashMessages()
         {
-            _dispatcherTimer.Stop();
-            ClearFlashMessages();
-            IsEmpty = false;
-            _sourceCollection = flashMessagesCollection;
             _dispatcherTimer.Start();
+        }
+
+
+        public IFlashMessagesManager AddFlashMessage(string message, Type type)
+        {
+            if (_dispatcherTimer.IsEnabled) {
+                _dispatcherTimer.Stop();                
+                ClearFlashMessages();
+            }
+            _sourceCollection.Add(message, type);
+            IsEmpty = false;
+
+            return this;
         }
 
 
@@ -70,6 +79,7 @@ namespace prjt.FlashMessages
 
         public void ClearFlashMessages()
         {
+            _sourceCollection.Clear();
             _flashMessages.Clear();
             IsEmpty = true;
         }

@@ -1,16 +1,16 @@
 ﻿using Caliburn.Micro;
-using prjt.FlashMessages;
-using prjt.Services.ViewModelResolver;
-using prjt.Validation;
+using Common.ViewModelResolver;
 using System;
+using System.ComponentModel;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Common.Validation;
+using Common.FlashMessages;
 
-namespace prjt.ViewModels.Base
+namespace Common.ViewModels
 {
-    public abstract class BaseConductorOneActive : Conductor<IViewModel>.Collection.OneActive, IViewModel, INotifyDataErrorInfo
+    public abstract class BaseConductorAllActive : Conductor<IViewModel>.Collection.AllActive, IViewModel, INotifyDataErrorInfo
     {
         // property injection
         private IEventAggregator _eventAggregator;
@@ -39,32 +39,23 @@ namespace prjt.ViewModels.Base
         }
 
 
-        protected void ActivateItem(string viewModelName)
+        protected IViewModel ActivateItem(string viewModelName)
         {
-            ActivateItem(GetViewModel(viewModelName));
+            IViewModel vm = GetViewModel(viewModelName);
+            ActivateItem(vm);
+
+            return vm;
         }
 
 
         protected IViewModel GetViewModel(string viewModelName)
         {
-            IViewModel viewModel = _viewModelResolver.Resolve(viewModelName);
-            if (viewModel == null) {
+            IViewModel vm = ViewModelResolver.Resolve(viewModelName);
+            if (vm == null) {
                 throw new Exception("Requested ViewModel does not Exist!");
             }
 
-            return viewModel;
-        }
-
-
-        protected void FlashMessage(string message, FlashMessages.Type type)
-        {
-            FlashMessagesManager.DisplayFlashMessage(message, type);
-        }
-
-
-        protected void FlashMessages(FlashMessagesCollection flashMessages)
-        {
-            FlashMessagesManager.DisplayFlashMessages(flashMessages);
+            return vm;
         }
 
 
@@ -109,6 +100,5 @@ namespace prjt.ViewModels.Base
         {
             Validation.ClearMessages(propertyName);
         }
-
     }
 }

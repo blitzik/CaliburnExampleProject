@@ -1,14 +1,14 @@
 ﻿using Caliburn.Micro;
-using prjt.ViewModels;
-using prjt.Validation;
-using prjt.FlashMessages;
-using prjt.Services.ViewModelResolver;
-using prjt.ViewModels.Base;
+using Common.ViewModels;
+using Common.Validation;
+using Common.FlashMessages;
+using Common.ViewModelResolver;
 using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Reflection;
 using intf.Views;
+using prjt.ViewModels;
 
 namespace CaliburnExample
 {

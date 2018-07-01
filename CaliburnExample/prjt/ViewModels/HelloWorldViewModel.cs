@@ -1,6 +1,6 @@
-﻿using prjt.FlashMessages;
-using prjt.Validation;
-using prjt.ViewModels.Base;
+﻿using Common.FlashMessages;
+using Common.Validation;
+using Common.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +31,11 @@ namespace prjt.ViewModels
 
         public void ClickMe()
         {
-            //FlashMessage("Success flash message", Project.FlashMessages.Type.SUCCESS);
-            FlashMessages(new FlashMessagesCollection()
-                .Add("Info flash message", prjt.FlashMessages.Type.INFO)
-                .Add("Success flash message", prjt.FlashMessages.Type.SUCCESS)
-                .Add("Warning flash message", prjt.FlashMessages.Type.WARNING)
-                .Add("Error flash message", prjt.FlashMessages.Type.ERROR)
-            );
+            FlashMessagesManager.AddFlashMessage("Info flash message", Common.FlashMessages.Type.INFO)
+                                .AddFlashMessage("Success flash message", Common.FlashMessages.Type.SUCCESS)
+                                .AddFlashMessage("Warning flash message", Common.FlashMessages.Type.WARNING)
+                                .AddFlashMessage("Error flash message", Common.FlashMessages.Type.ERROR)
+                                .DisplayFlashMessages();
         }
     }
 }

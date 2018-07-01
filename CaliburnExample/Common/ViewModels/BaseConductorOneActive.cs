@@ -1,16 +1,17 @@
 ﻿using Caliburn.Micro;
-using prjt.FlashMessages;
-using prjt.Services.ViewModelResolver;
-using prjt.Validation;
+using Common.FlashMessages;
+using Common.ViewModelResolver;
+using Common.Validation;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Common.ViewModels;
 
-namespace prjt.ViewModels.Base
+namespace prjt.ViewModels
 {
-    public abstract class BaseScreen : Screen, IViewModel, INotifyDataErrorInfo
+    public abstract class BaseConductorOneActive : Conductor<IViewModel>.Collection.OneActive, IViewModel, INotifyDataErrorInfo
     {
         // property injection
         private IEventAggregator _eventAggregator;
@@ -18,6 +19,15 @@ namespace prjt.ViewModels.Base
         {
             get { return _eventAggregator; }
             set { _eventAggregator = value; }
+        }
+
+
+        // property injection
+        private IViewModelResolver<IViewModel> _viewModelResolver;
+        public IViewModelResolver<IViewModel> ViewModelResolver
+        {
+            get { return _viewModelResolver; }
+            set { _viewModelResolver = value; }
         }
 
 
@@ -30,15 +40,20 @@ namespace prjt.ViewModels.Base
         }
 
 
-        protected void FlashMessage(string message, FlashMessages.Type type)
+        protected void ActivateItem(string viewModelName)
         {
-            FlashMessagesManager.DisplayFlashMessage(message, type);
+            ActivateItem(GetViewModel(viewModelName));
         }
 
 
-        protected void FlashMessages(FlashMessagesCollection flashMessages)
+        protected IViewModel GetViewModel(string viewModelName)
         {
-            FlashMessagesManager.DisplayFlashMessages(flashMessages);
+            IViewModel viewModel = _viewModelResolver.Resolve(viewModelName);
+            if (viewModel == null) {
+                throw new Exception("Requested ViewModel does not Exist!");
+            }
+
+            return viewModel;
         }
 
 
@@ -83,5 +98,6 @@ namespace prjt.ViewModels.Base
         {
             Validation.ClearMessages(propertyName);
         }
+
     }
 }

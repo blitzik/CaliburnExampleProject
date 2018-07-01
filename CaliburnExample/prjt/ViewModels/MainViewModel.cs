@@ -1,6 +1,6 @@
 ﻿using Caliburn.Micro;
-using prjt.EventAggregator.Messages;
-using prjt.ViewModels.Base;
+using Common.EventAggregator.Messages;
+using Common.ViewModels;
 
 namespace prjt.ViewModels
 {

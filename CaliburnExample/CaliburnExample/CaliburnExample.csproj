@@ -100,6 +100,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{94033fb6-8c9f-456e-a9ad-a9640b8c3bc3}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\intf\intf.csproj">
       <Project>{5e92ac58-df8f-4eed-8c36-74ea9d23c661}</Project>
       <Name>intf</Name>

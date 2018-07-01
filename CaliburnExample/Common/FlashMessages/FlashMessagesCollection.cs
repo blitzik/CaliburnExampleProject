@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace prjt.FlashMessages
+namespace Common.FlashMessages
 {
     public class FlashMessagesCollection
     {
@@ -39,6 +39,12 @@ namespace prjt.FlashMessages
             }
 
             return null;
+        }
+
+
+        public void Clear()
+        {
+            _notifications.Clear();
         }
     }
 }
